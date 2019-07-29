@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormControl, FormGroup, NG_VALIDATORS, NgForm} from "@angular/forms";
+import {ValidateFn} from "codelyzer/walkerFactory/walkerFn";
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,7 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
 
   constructor() { }
 
@@ -14,6 +16,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    if (!form.valid) {
+      return;
+    }
+
+
     console.log(form.value);
     form.reset();
   }

@@ -1,7 +1,7 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./auth/login/login.component";
+import {RegisterComponent} from "./auth/register/register.component";
 import {TrainingComponent} from "./training/training.component";
 import {PricingComponent} from "./pricing/pricing.component";
 import {FeaturesComponent} from "./features/features.component";

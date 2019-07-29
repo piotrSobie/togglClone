@@ -11,7 +11,9 @@
           name="email"
           required
           email
+          #email="ngModel"
         />
+        <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email!</span>
       </div>
       <div class="form-group">
         <label for="password">SET PASSWORD</label>
@@ -23,7 +25,12 @@
           name="password"
           required
           minlength="6"
+          #password="ngModel"
+          validatePassword
         />
+        <span class="help-block" *ngIf="!password.valid && password.touched">
+          Password should contain at least 1 lowercase character, 1 uppercase character, 1 number and 1 special character
+        </span>
       </div>
       <div class="form-group">
         <label for="location">YOUR LOCATION</label>
