@@ -1,0 +1,15 @@
+button {
+  margin: 5px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-invalid.ng-touched.form-check-input {
+  outline: 1px solid red;
+}
+
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
