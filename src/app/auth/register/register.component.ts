@@ -13,8 +13,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) {
+  onSubmitSignUp(form: NgForm) {
+    if (!form.valid) {
+      return;
+    }
+
+    console.log("TODO, regular signUp");
     console.log(form.value);
     form.reset();
   }
+
+  signUpWithGoogle() {
+    console.log("TODO, signUp with google");
+  }
+
 }

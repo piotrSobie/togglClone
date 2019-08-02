@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, NG_VALIDATORS, NgForm} from "@angular/forms";
-import {ValidateFn} from "codelyzer/walkerFactory/walkerFn";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -8,20 +7,23 @@ import {ValidateFn} from "codelyzer/walkerFactory/walkerFn";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onSubmit(form: NgForm) {
+  onSubmitLogin(form: NgForm) {
     if (!form.valid) {
       return;
     }
 
-
+    console.log("TODO, regular login");
     console.log(form.value);
     form.reset();
+  }
+
+  loginWithGoogle() {
+    console.log("TODO, login with google");
   }
 }
