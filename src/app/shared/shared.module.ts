@@ -1,26 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {BrowserModule} from "@angular/platform-browser";
-import {FormsModule} from "@angular/forms";
-import {HeaderComponent} from "./header/header.component";
-import {FooterComponent} from "./footer/footer.component";
-import {RouterModule} from "@angular/router";
+import {HeaderComponent} from "./components/header/header.component";
+import {FooterComponent} from "./components/footer/footer.component";
+import {BaseComponents} from "./index";
+import {AppRoutingModule} from "../app-routing.module";
 
 
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
   imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule,
-    RouterModule
+    ...BaseComponents
   ],
   exports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule,
-    RouterModule,
+    ...BaseComponents,
+    AppRoutingModule,
     HeaderComponent,
     FooterComponent
   ]

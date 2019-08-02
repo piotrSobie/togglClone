@@ -1,10 +1,10 @@
 import {RouterModule, Routes} from "@angular/router";
 import {NgModule} from "@angular/core";
-import {LoginComponent} from "./auth/login/login.component";
-import {RegisterComponent} from "./auth/register/register.component";
-import {TrainingComponent} from "./training/training.component";
-import {PricingComponent} from "./pricing/pricing.component";
-import {FeaturesComponent} from "./features/features.component";
+import {LoginComponent} from "./modules/auth/login/login.component";
+import {RegisterComponent} from "./modules/auth/register/register.component";
+import {TrainingComponent} from "./modules/training/training.component";
+import {PricingComponent} from "./modules/pricing/pricing.component";
+import {FeaturesComponent} from "./modules/features/features.component";
 
 const appRoutes: Routes = [
   { path: 'register', component: RegisterComponent },
