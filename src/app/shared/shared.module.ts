@@ -4,12 +4,12 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {BaseComponents} from "./index";
 import {AppRoutingModule} from "../app-routing.module";
 
-
-
 @NgModule({
   declarations: [HeaderComponent, FooterComponent],
   imports: [
-    ...BaseComponents
+    ...BaseComponents,
+    AppRoutingModule
+
   ],
   exports: [
     ...BaseComponents,
