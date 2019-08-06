@@ -1,28 +1,21 @@
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/auth/login/login.component';
-import { RegisterComponent } from './modules/auth/register/register.component';
-import { TrainingComponent } from './modules/training/training.component';
-import { PricingComponent } from './modules/pricing/pricing.component';
-import { FeaturesComponent } from './modules/features/features.component';
 import {SharedModule} from "./shared/shared.module";
 import {PasswordValidatorDirective} from "./_helpers/password-validator.directive";
+import {CoreModule} from "./shared/core.module";
+import {LoggingService} from "./shared/services/logging.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    TrainingComponent,
-    PricingComponent,
-    FeaturesComponent,
     PasswordValidatorDirective
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {LoggingService} from "../../../shared/services/logging.service";
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import {NgForm} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loggingService: LoggingService) { }
 
   ngOnInit() {
   }
@@ -18,12 +19,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loggingService.isLogged = true;
     console.log("TODO, regular login");
     console.log(form.value);
     form.reset();
   }
 
   loginWithGoogle() {
+    this.loggingService.isLogged = true;
     console.log("TODO, login with google");
   }
 }
