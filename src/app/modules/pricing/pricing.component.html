@@ -1,151 +1,137 @@
-<div class="cold-md-6 col-xs-12 text-center">
-  <div class="addedPadding">
-    <table class="table table-hover table-responsive">
-      <thead>
-      <tr>
-        <th colspan="3" class="text-center">Available offers</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td><img src="../../../assets/common/pictures/hamburger.jpg" class="img-responsive center-block"></td>
-        <td><img src="../../../assets/common/pictures/hot-dog.jpg" class="img-responsive center-block"></td>
-        <td><img src="../../../assets/common/pictures/pizza-slice.jpg" class="img-responsive center-block"></td>
-      </tr>
-      <tr>
-        <td class="col-md-2">
-          <p class="enterprise big-bold">Enterprise</p>
-          <p>A plan to suit the needs of your complex or large organization</p>
-        </td>
-        <td class="col-md-2">
-          <p class="premium  big-bold">Premium</p>
-          <p>Effortless team time management</p>
-        </td>
-        <td class="col-md-2">
-          <p class="starter  big-bold">Starter</p>
-          <p>Compact time tracking & reporting</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p class="enterprise big-bold">Custom pricing</p>
-        </td>
-        <td>
-          <p class="premium big-bold">$18</p>
-          <p>PER USER/MONTH (BILLED YEARLY)</p>
-        </td>
-        <td>
-          <p class="starter big-bold">$9</p>
-          <p>PER USER/MONTH (BILLED YEARLY)</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>Everything in Premium+</p>
-          <hr>
-          <p>Priority support</p>
-          <hr>
-          <p>Expert training and assistance</p>
-          <hr>
-          <p>Customizable solutions</p>
-        </td>
-        <td>
-          <p>Everything in Starter+</p>
-          <hr>
-          <p>Project and employee profitability charts</p>
-          <hr>
-          <p>Schedule reports to email</p>
-          <hr>
-          <p>Set tracking reminders, add time for your team and more</p>
-          <hr>
-          <p>Set up your team with the help of a Toggl consultant</p>
-        </td>
-        <td>
-          <p>Find your time sinks and see where you earn revenues</p>
-          <hr>
-          <p>Increase client satisfaction with transparent reporting</p>
-          <hr>
-          <p>See how well you're hitting project timelines and budgets</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button type="button" class="btn btn-danger" (click)="buyEnterprise()">Buy enterprise</button>
-        </td>
-        <td>
-          <button type="button" class="btn btn-danger" (click)="buyPremium()">Buy premium</button>
-        </td>
-        <td>
-          <button type="button" class="btn btn-danger" (click)="buyStarter()">Buy starter</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="wrapper">
+    <div class="column">
+      <div class="cell image">
+        <img src="../../../assets/common/pictures/hamburger.jpg" class="img-responsive center-block">
+      </div>
+      <div class="cell offer-type">
+        <p class="enterprise big-bold">Enterprise</p>
+        <p>A plan to suit the needs of your complex or large organization</p>
+      </div>
+      <div class="cell price">
+        <p class="enterprise big-bold">Custom pricing</p>
+      </div>
+      <div class="cell content">
+        <p>Everything in Premium+</p>
+        <hr>
+        <p>Priority support</p>
+        <hr>
+        <p>Expert training and assistance</p>
+        <hr>
+        <p>Customizable solutions</p>
+      </div>
+      <div class="cell">
+        <button type="button" class="btn btn-danger" (click)="buyEnterprise()">Buy enterprise</button>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="cell image">
+        <img src="../../../assets/common/pictures/hot-dog.jpg" class="img-responsive center-block">
+      </div>
+      <div class="cell offer-type">
+        <p class="premium  big-bold">Premium</p>
+        <p>Effortless team time management</p>
+      </div>
+      <div class="cell price">
+        <p class="premium big-bold">$18</p>
+        <p>PER USER/MONTH (BILLED YEARLY)</p>
+      </div>
+      <div class="cell content">
+        <p>Everything in Starter+</p>
+        <hr>
+        <p>Project and employee profitability charts</p>
+        <hr>
+        <p>Schedule reports to email</p>
+        <hr>
+        <p>Set tracking reminders, add time for your team and more</p>
+        <hr>
+        <p>Set up your team with the help of a Toggl consultant</p>
+      </div>
+      <div class="cell">
+        <button type="button" class="btn btn-danger" (click)="buyPremium()">Buy premium</button>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="cell image">
+        <img src="../../../assets/common/pictures/pizza-slice.jpg" class="img-responsive center-block">
+      </div>
+      <div class="cell offer-type">
+        <p class="starter  big-bold">Starter</p>
+        <p>Compact time tracking & reporting</p>
+      </div>
+      <div class="cell price">
+        <p class="starter big-bold">$9</p>
+        <p>PER USER/MONTH (BILLED YEARLY)</p>
+      </div>
+      <div class="cell content">
+        <p>Find your time sinks and see where you earn revenues</p>
+        <hr>
+        <p>Increase client satisfaction with transparent reporting</p>
+        <hr>
+        <p>See how well you're hitting project timelines and budgets</p>
+      </div>
+      <div class="cell">
+        <button type="button" class="btn btn-danger" (click)="buyStarter()">Buy starter</button>
+      </div>
+    </div>
   </div>
 
-  <div class="addedPadding big-bold">
-    <p>
-      All paid plans have unlimited team size and are billed per user in workspace. <br>
-      Free plan for basic tracking is available for teams up to 5 members.
-    </p>
+  <div class="wrapper big-bold">
+    <div class="column big-bold">
+      <p>
+        All paid plans have unlimited team size and are billed per user in workspace. <br>
+        Free plan for basic tracking is available for teams up to 5 members.
+      </p>
+    </div>
   </div>
 
-  <div class="addedPadding">
-    <table class="table table-responsive">
-      <thead>
-      <tr>
-        <th colspan="2" class="text-center">
-          <p class="ultra-big">There's more</p>
-          <p class="big-bold">Even more reasons you'll love Toggl</p>
-        </th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <p class="ultra-big">
-            First 30 days are free
-          </p>
-          <p>
-            Enjoy the first 30 days of Toggl completely free with full access to all of the features in your selected plan.
-          </p>
-        </td>
-        <td>
-          <p class="ultra-big">
-            Switch or cancel anytime
-          </p>
-          <p>
-            Feel free to switch between plans or cancel your subscription at any time – absolutely no strings attached!
-          </p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p class="ultra-big">
-            Billing per team member
-          </p>
-          <p>
-            Freely add or remove team members in your workspace as we’ll re-calculate the billing according to your current team size.
-          </p>
-        </td>
-        <td>
-          <p class="ultra-big">
-            Privacy is everything
-          </p>
-          <p>
-            We value your privacy and keep a very high level of security. Check Terms of Service and Privacy Policy for more details.
-          </p>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+  <div class="wrapper">
+    <div class="column">
+      <div class="wide-cell">
+        <p class="ultra-big">
+          First 30 days are free
+        </p>
+        <p>
+          Enjoy the first 30 days of Toggl completely free with full access to all of the features in your selected plan.
+        </p>
+      </div>
+      <div class="wide-cell">
+        <p class="ultra-big">
+          Billing per team member
+        </p>
+        <p>
+          Freely add or remove team members in your workspace as we’ll re-calculate the billing according to your current team size.
+        </p>
+      </div>
+    </div>
+    <div class="column">
+      <div class="wide-cell">
+        <p class="ultra-big">
+          Switch or cancel anytime
+        </p>
+        <p>
+          Feel free to switch between plans or cancel your subscription at any time – absolutely no strings attached!
+        </p>
+      </div>
+      <div class="wide-cell">
+        <p class="ultra-big">
+          Privacy is everything
+        </p>
+        <p>
+          We value your privacy and keep a very high level of security. Check Terms of Service and Privacy Policy for more details.
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="addedPadding">
-    <p class="ultra-big">
-      Questions? Contact us and we’ll be happy to help:
-    </p>
-    <a href="mailto:support@toggl.com" class="btn btn-primary">support@toggl.com</a>
+  <div class="wrapper">
+    <div class="column">
+      <p class="ultra-big">
+        Questions? Contact us and we’ll be happy to help:
+      </p>
+      <a href="mailto:support@toggl.com" class="btn btn-primary email">support@toggl.com</a>
+    </div>
   </div>
-
 </div>

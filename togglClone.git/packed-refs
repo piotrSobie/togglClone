@@ -1,6 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-0e3116f0c8191590bfe341b99a70e1df1da44c9b refs/heads/development
-bfd2c567153d5f0c04d34340b0d212fe982b60c8 refs/heads/footer
-9365551d3fb8de45ee9d68df160b1eca578ffdec refs/heads/loginAndRegister
-0e5c78f0883b4444d1792815ed5d94857165c841 refs/heads/master
-e390ecfa984222df3b81853a70dafbdd6604b815 refs/heads/pricing

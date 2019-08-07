@@ -4,8 +4,6 @@ import {RegisterComponents} from "../modules/auth/register";
 import {FeaturesComponents} from "../modules/features";
 import {PricingComponents} from "../modules/pricing";
 import {TrainingComponents} from "../modules/training";
-import {FooterComponents} from "./components/footer";
-import {HeaderComponents} from "./components/header";
 import {SharedModule} from "./shared.module";
 
 @NgModule({
@@ -15,9 +13,7 @@ import {SharedModule} from "./shared.module";
     ...RegisterComponents,
     ...FeaturesComponents,
     ...PricingComponents,
-    ...TrainingComponents,
-    ...FooterComponents,
-    ...HeaderComponents
+    ...TrainingComponents
   ],
   providers: [],
   exports: [
@@ -25,9 +21,7 @@ import {SharedModule} from "./shared.module";
     ...RegisterComponents,
     ...FeaturesComponents,
     ...PricingComponents,
-    ...TrainingComponents,
-    ...FooterComponents,
-    ...HeaderComponents
+    ...TrainingComponents
   ],
 })
 

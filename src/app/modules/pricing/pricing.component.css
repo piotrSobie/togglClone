@@ -1,6 +1,43 @@
-img {
-  max-height: 234px;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 30px 0px 30px 0px;
+}
+
+.column {
+  flex-direction: column;
+  text-align: center;
+}
+
+.cell {
+  margin: 20px 20px 20px 20px;
   max-width: 216px;
+  text-align: center;
+  align-items: center;
+}
+
+.wide-cell {
+  margin: 20px 20px 20px 20px;
+  max-width: 350px;
+  text-align: center;
+  align-items: center;
+}
+
+.image {
+  height: 234px;
+}
+
+.offer-type {
+  height: 66px;
+}
+
+.price {
+  height: 50px;
+}
+
+.content {
+  height: 265px;
 }
 
 .big-bold {
@@ -10,6 +47,7 @@ img {
 
 .ultra-big {
   font-size: 30px;
+  margin-bottom: 15px;
 }
 
 .enterprise {
@@ -24,6 +62,6 @@ img {
   color: darkorange;
 }
 
-.addedPadding {
-  padding: 50px 0 50px 0;
+.email {
+  max-width: 160px;
 }
