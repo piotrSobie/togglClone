@@ -12,9 +12,9 @@ import {FooterComponents} from "./components/footer";
   ],
   exports: [
     ...BaseComponents,
+    ...HeaderComponents,
+    ...FooterComponents,
     AppRoutingModule,
-    HeaderComponents,
-    FooterComponents
   ]
 })
 export class SharedModule { }
