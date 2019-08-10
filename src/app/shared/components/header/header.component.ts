@@ -16,10 +16,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.router.config.forEach( route => {
-      this.links.unshift({
-        text: route.component.name.replace('Component', ''),
-        path: route.path
-      });
+      if (route.component !== undefined) {
+        this.links.unshift({
+          text: route.component.name.replace('Component', ''),
+          path: route.path
+        });
+      }
     });
   }
 
