@@ -3,8 +3,9 @@ import {LoginComponents} from "../modules/auth/login";
 import {RegisterComponents} from "../modules/auth/register";
 import {FeaturesComponents} from "../modules/features";
 import {PricingComponents} from "../modules/pricing";
-import {TrainingComponents} from "../modules/training";
 import {SharedModule} from "./shared.module";
+import {PlansComponents} from "../modules/plans";
+import {PageNotFoundComponents} from "../modules/page-not-found";
 
 @NgModule({
   imports: [SharedModule],
@@ -13,7 +14,8 @@ import {SharedModule} from "./shared.module";
     ...RegisterComponents,
     ...FeaturesComponents,
     ...PricingComponents,
-    ...TrainingComponents
+    ...PlansComponents,
+    ...PageNotFoundComponents
   ],
   providers: [],
   exports: [
@@ -21,7 +23,8 @@ import {SharedModule} from "./shared.module";
     ...RegisterComponents,
     ...FeaturesComponents,
     ...PricingComponents,
-    ...TrainingComponents
+    ...PlansComponents,
+    ...PageNotFoundComponents
   ],
 })
 

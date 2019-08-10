@@ -51,15 +51,15 @@
 }
 
 .enterprise {
-  color: red;
+  color: var(--red-color);
 }
 
 .premium {
-  color: green;
+  color: var(--green-color)
 }
 
 .starter {
-  color: darkorange;
+  color: var(--orange-color);
 }
 
 .email {
