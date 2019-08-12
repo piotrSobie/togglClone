@@ -1,0 +1,24 @@
+<div
+  fxFlex="100%"
+  fxLayout="row wrap"
+  fxLayoutGap="30px"
+  fxLayoutGap.xs="0px"
+  fxLayoutAlign="center"
+>
+  <div *ngFor="let video of videos"
+       fxFlex="25"
+       fxFlex.md="33"
+       fxFlex.sm="50"
+       fxFlex.xs="70"
+       fxLayout="column"
+       fxLayoutGap="10px"
+  >
+    <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="video_snippet">
+    <a fxLayoutAlign="center" href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+      {{video.snippet.title}}
+    </a>
+    <p>{{video.snippet.description}}</p>
+  </div>
+</div>
+
+
