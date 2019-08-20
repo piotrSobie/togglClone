@@ -1,21 +1,20 @@
 import { NgModule } from '@angular/core';
-import {HeaderComponent} from "./components/header/header.component";
-import {FooterComponent} from "./components/footer/footer.component";
 import {BaseComponents} from "./index";
 import {AppRoutingModule} from "../app-routing.module";
+import {HeaderComponents} from "./components/header";
+import {FooterComponents} from "./components/footer";
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponents, FooterComponents],
   imports: [
     ...BaseComponents,
     AppRoutingModule
-
   ],
   exports: [
     ...BaseComponents,
+    ...HeaderComponents,
+    ...FooterComponents,
     AppRoutingModule,
-    HeaderComponent,
-    FooterComponent
   ]
 })
 export class SharedModule { }
