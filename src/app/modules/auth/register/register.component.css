@@ -3,13 +3,13 @@ button {
 }
 
 input.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 1px solid var(--red-color);
 }
 
 input.ng-invalid.ng-touched.form-check-input {
-  outline: 1px solid red;
+  outline: 1px solid var(--red-color);
 }
 
 select.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 1px solid var(--red-color);
 }
