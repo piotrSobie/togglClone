@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loggingService.isLogged = true;
+    this.loggingService.logIn();
     console.log("TODO, regular login");
     console.log(form.value);
     form.reset();
   }
 
   loginWithGoogle() {
-    this.loggingService.isLogged = true;
+    this.loggingService.logIn();
     console.log("TODO, login with google");
   }
 }

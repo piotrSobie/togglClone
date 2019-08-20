@@ -1,0 +1,37 @@
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.panel-heading {
+  text-align: center;
+}
+
+.image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.title {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.enterprise {
+  color: var(--red-color);
+}
+
+.premium {
+  color: var(--green-color)
+}
+
+.starter {
+  color: var(--orange-color);
+}
