@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   apiKey: 'AIzaSyBshmLrxnrdPagCpXnszeZi0zH46yRAN0I'
+
+
 };
 
 /*
