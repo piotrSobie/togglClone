@@ -8,6 +8,8 @@ import {PageNotFoundComponents} from "../modules/page-not-found";
 import {AgmCoreModule} from "@agm/core";
 import {VideosComponents} from "../modules/videos";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {EditProfileComponents} from "../modules/edit-profile";
+import {WelcomeScreenComponents} from "../modules/welcome-screen";
 
 @NgModule({
   imports: [SharedModule, AgmCoreModule, FlexLayoutModule],
@@ -17,7 +19,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ...PricingComponents,
     ...PlansComponents,
     ...PageNotFoundComponents,
-    ...VideosComponents
+    ...VideosComponents,
+    ...EditProfileComponents,
+    ...WelcomeScreenComponents
   ],
   providers: [],
   exports: [
@@ -26,7 +30,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ...PricingComponents,
     ...PlansComponents,
     ...PageNotFoundComponents,
-    ...VideosComponents
+    ...VideosComponents,
+    ...EditProfileComponents,
+    ...WelcomeScreenComponents
   ],
 })
 

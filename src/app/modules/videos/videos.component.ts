@@ -9,6 +9,7 @@ import {YoutubeService} from "../../shared/services/youtube.service";
 export class VideosComponent implements OnInit {
 
   videos: any[];
+  error = '';
 
   constructor(private youTubeService: YoutubeService) { }
 
@@ -17,10 +18,12 @@ export class VideosComponent implements OnInit {
     this.videos = [];
     this.youTubeService
       .getVideosForChanel('UCJTaes-TMoSxPZxxJF_seGw', 30)
-      .subscribe(list => {
+      .subscribe((list) => {
         for (let element of list["items"]) {
           this.videos.push(element)
         }
-      });
+      }, (error => {
+        this.error = error.message;
+      }));
   }
 }

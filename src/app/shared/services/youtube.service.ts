@@ -20,7 +20,6 @@ export class YoutubeService {
 
     return this.http.get(url)
       .pipe(map((res) => {
-        console.log(res);
         return res;
       }))
   }

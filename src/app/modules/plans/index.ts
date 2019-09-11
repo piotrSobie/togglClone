@@ -1,12 +1,13 @@
 import { PlansComponent } from "./plans.component";
-import {PlanComponent} from "./plan/plan.component";
+import {ShowPlansComponents} from "./show-plans";
+import {FormPlanComponents} from "./form-plan";
 
 export const PlansComponents = [
   PlansComponent,
-  PlanComponent
+  ...ShowPlansComponents,
+  ...FormPlanComponents
 ];
 
 export {
-  PlansComponent,
-  PlanComponent
+  PlansComponent
 }

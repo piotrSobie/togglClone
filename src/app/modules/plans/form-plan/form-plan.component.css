@@ -1,0 +1,13 @@
+.bold {
+  font-weight: bold;
+}
+
+.padding {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.center-padding {
+  text-align: center;
+  padding-top: 10px;
+}

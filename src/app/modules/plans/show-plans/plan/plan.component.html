@@ -16,10 +16,15 @@
       </div>
       <div class="column">
         <span class="title" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">Active time:</span>
-        <span [innerText]="plan.activeTime"></span>
+        <span [innerText]="plan.getActiveTime()"></span>
       </div>
       <div class="column">
-        <button class="btn btn-danger" (click)="onPlanDeleted()">Delete</button>
+        <span class="title" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">Additional wishes:</span>
+        <span [innerText]="plan.additionalWishes"></span>
+      </div>
+      <div class="column">
+        <button class="btn btn-warning my-btn" (click)="onPlanEdited()">Edit</button>
+        <button class="btn btn-danger my-btn" (click)="onPlanDeleted()">Delete</button>
       </div>
     </div>
   </div>

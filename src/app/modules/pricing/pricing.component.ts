@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoggingService} from "../../shared/services/logging.service";
 import {Router} from "@angular/router";
 import {PlansService} from "../../shared/services/plans.service";
-import {PlanModel} from "../plans/plan/plan.model";
+import {PlanModel} from "../plans/show-plans/plan/plan.model";
 
 @Component({
   selector: 'app-pricing',
@@ -28,53 +28,47 @@ export class PricingComponent implements OnInit {
   }
 
   buyEnterprise() {
-    console.log("buy enterprise");
     if (this.checkIfLogged()) {
       return;
     }
 
     let enterprisePlan: PlanModel = new PlanModel(
-      '../../../assets/common/pictures/hamburger.jpg',
+      '',
       'Enterprise',
       'Custom pricing',
       `A plan to suit the needs of your
                     complex or large organization`
     );
 
-    this.plansService.addPlan(enterprisePlan);
-    console.log("enterprise is bought");
+    this.plansService.moveToPlanStage(enterprisePlan);
   }
 
   buyPremium() {
-    console.log("buy premium");
     if (this.checkIfLogged()) {
       return;
     }
 
     let premiumPlan: PlanModel = new PlanModel(
-      '../../../assets/common/pictures/hot-dog.jpg',
+      '',
       'Premium',
       '$18',
       'Effortless team time management'
     );
-    this.plansService.addPlan(premiumPlan);
-    console.log("premium is bought");
+    this.plansService.moveToPlanStage(premiumPlan);
   }
 
   buyStarter() {
-    console.log("buy starter");
     if (this.checkIfLogged()) {
       return;
     }
 
     let starterPlan: PlanModel = new PlanModel(
-      '../../../assets/common/pictures/pizza-slice.jpg',
+      '',
       'Starter',
       '$9',
       'Compact time tracking & reporting'
     );
-    this.plansService.addPlan(starterPlan);
-    console.log("starter is bought");
+    this.plansService.moveToPlanStage(starterPlan);
   }
 
 }

@@ -14,8 +14,19 @@ export class AuthGuardService implements CanActivate{
       return true;
     }
     else {
-      alert("Please login first!")
-      this.router.navigate(['/login']);
+      this.loggingService.getNewAuthToken().subscribe((data: { expiresIn: number, token: string }) => {
+        console.log('getNewAuthToken');
+        console.log(data);
+        const authTokenLastTill = new Date().getTime() + data.expiresIn * 1000;
+        localStorage.setItem('authToken', data.token);
+        localStorage.setItem('authTokenLastUntil', authTokenLastTill.toString());
+        return true;
+      }, (error) => {
+        alert("Please login first!");
+        this.router.navigate(['/login']);
+      });
+      // alert("Please login first!");
+      // this.router.navigate(['/login']);
     }
   }
 

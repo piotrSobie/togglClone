@@ -1,5 +1,8 @@
 <div class="row">
-  <div class="col-xs-12 col-md-6 col-md-offset-3">
+  <div class="content" *ngIf="this.loggingService.isAuthenticated()">
+    <span class="center-padding">You are already logged in</span>
+  </div>
+  <div *ngIf="!this.loggingService.isAuthenticated()" class="col-xs-12 col-md-6 col-md-offset-3">
     <form #authForm="ngForm" (ngSubmit)="onSubmitLogin(authForm)">
       <div class="form-group">
         <label for="email">EMAIL ADDRESS</label>
@@ -30,18 +33,13 @@
         <span class="help-block" *ngIf="!password.valid && password.touched">
           Password should be at least 8 characters long and contain one of each characters: lowercase character, uppercase character, number and special character
         </span>
-        <p>
-          <a class="forgot-password">Forgot password?</a>
-        </p>
       </div>
-      <div class="col-md-6 col-md-offset-3">
+      <div class="text-center">
         <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
           LOG IN
         </button>
-        <button class="btn btn-primary" type="button" (click)="loginWithGoogle()">
-          LOG IN WITH GOOGLE
-        </button>
       </div>
     </form>
+    <span *ngIf="error" class="help-block center-padding">{{error}}</span>
   </div>
 </div>

@@ -1,39 +1,35 @@
 <div class="row">
-  <div class="content" *ngIf="this.loggingService.isAuthenticated()">
-    <span class="center-padding">You are already logged in</span>
-  </div>
-  <div *ngIf="!this.loggingService.isAuthenticated()" class="col-xs-12 col-md-6 col-md-offset-3">
-    <form #authForm="ngForm" (ngSubmit)="onSubmitSignUp(authForm)">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="form-group">
         <label for="email">EMAIL ADDRESS</label>
         <input
           type="email"
           id="email"
           class="form-control"
-          ngModel
+          [(ngModel)]="this.user.email"
           name="email"
           required
           email
           #email="ngModel"
-          (click)="resetMessage()"
+          (click)="resetMessages()"
         />
         <span class="help-block" *ngIf="!email.valid && email.touched">Please enter valid email!</span>
-        <span class="help-block" *ngIf="this.duplicateEmail">This email is already in use</span>
+        <span class="help-block" *ngIf="this.duplicateEmail">Email already in use</span>
       </div>
       <div class="form-group">
-        <label for="password">SET PASSWORD</label>
+        <label for="password">SET NEW PASSWORD</label>
         <input
           type="password"
           id="password"
           class="form-control"
-          ngModel
+          [(ngModel)]="this.user.password"
           name="password"
-          required
-          minlength="6"
           #password="ngModel"
           validatePassword
+          (click)="resetMessages()"
         />
-        <span class="help-block" *ngIf="!password.valid && password.touched">
+        <span class="help-block" *ngIf="(!password.valid && password.touched)">
           Password should be at least 8 characters long and contain one of each characters: lowercase character, uppercase character, number and special character
         </span>
       </div>
@@ -42,10 +38,11 @@
         <select
           id="location"
           class="form-control"
-          ngModel
+          [(ngModel)]="this.user.location"
           name="location"
           required
           #location="ngModel"
+          (click)="resetMessages()"
         >
           <option value="AF">Afghanistan</option>
           <option value="AX">Åland Islands</option>
@@ -302,26 +299,27 @@
         </span>
       </div>
       <div class="form-group">
-        <input
-          type="checkbox"
-          id="terms"
-          class="form-check-input"
-          ngModel
-          name="terms"
-          required
-          #terms="ngModel"
-        />
-        <label class="form-check-label" for="terms">I agree to the terms of service and privacy policy</label>
-        <span class="help-block" *ngIf="!terms.valid && terms.touched">
-          Please review and check terms of use
-        </span>
+        <label>Operation type</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" required value="edit" name="operation"
+              [(ngModel)]="operation"> Edit
+          </label>
+          <label class="radio-inline">
+            <input type="radio" required value="delete" name="operation"
+                   [(ngModel)]="operation"> Delete
+          </label>
+        </div>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
-          SIGN UP FOR FREE
+        <button class="btn btn-primary" type="submit" [disabled]="!this.loggingService.isAuthenticated()">
+          Execute operation
         </button>
       </div>
     </form>
+    <span *ngIf="formError" class="help-block center-padding">Email address, location and operation type are required</span>
+    <span *ngIf="edited" class="help-block center-padding">User edited</span>
+    <span *ngIf="deleted" class="help-block center-padding">User deleted, going to welcome page in {{timeToRedirectAfterDeletion}} seconds</span>
     <span *ngIf="error" class="help-block center-padding">{{error}}</span>
   </div>
 </div>

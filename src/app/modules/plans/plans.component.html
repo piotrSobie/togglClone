@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <app-plan
-        (planDeleted)="onPlanDeleted($event)"
-        *ngFor="let onePlan of userPlans"
-        [plan]="onePlan">
-      </app-plan>
+  <div class="main">
+    <div class="row-flex">
+      <button (click)="formRecipe()" class="btn btn-primary my-btn">Plan control panel</button>
+      <button (click)="showPlans()" class="btn btn-primary my-btn">Show all plans</button>
     </div>
+    <app-form-plan *ngIf="this.plansService.mode === 'form'"></app-form-plan>
+    <app-show-plans *ngIf="this.plansService.mode === 'show'"></app-show-plans>
   </div>
+  <span *ngIf="error" class="help-block center-padding">{{error}}</span>
 </div>

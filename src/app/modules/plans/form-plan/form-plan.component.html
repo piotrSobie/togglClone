@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <p *ngIf="!plan.type">Please choose new plan from <span class="bold">pricing</span> to add new one or choose to edit/delete existing one from <span class="bold">Plans->Show all plans</span></p>
+    <div *ngIf="plan.type">
+      <div class="padding">
+        <p class="padding"><span class="bold">Plan type: </span>{{plan.type}}</p>
+        <p class="padding"><span class="bold">Price: </span>{{plan.price}}</p>
+        <p class="padding"><span class="bold">Description: </span>{{plan.description}}</p>
+        <p class="padding"><span class="bold">Active time: </span>{{plan.getActiveTime()}}</p>
+      </div>
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+        <div class="form-group">
+          <label for="additionalWishes">Additional wishes</label>
+          <input
+            type="text"
+            id="additionalWishes"
+            class="form-control"
+            ngModel
+            name="additionalWishes"
+          />
+        </div>
+        <div class="form-group">
+          <label>Operation type</label>
+          <div class="form-control">
+            <label class="radio-inline">
+              <input type="radio" required value="add" name="operation"
+                     [(ngModel)]="operation"> Add
+            </label>
+            <label class="radio-inline">
+              <input type="radio" required value="edit" name="operation"
+                     [(ngModel)]="operation"> Edit
+            </label>
+            <label class="radio-inline">
+              <input type="radio" required value="delete" name="operation"
+                     [(ngModel)]="operation"> Delete
+            </label>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
+            Execute operation
+          </button>
+        </div>
+      </form>
+      <span *ngIf="added" class="help-block center-padding">Thank you for your purchase, plan was added to your account</span>
+      <span *ngIf="edited" class="help-block center-padding">Plan edited</span>
+      <span *ngIf="deleted" class="help-block center-padding">Plan deleted</span>
+      <span *ngIf="error" class="help-block center-padding">{{error}}</span>
+    </div>
+  </div>
+</div>

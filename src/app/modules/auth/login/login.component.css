@@ -6,6 +6,12 @@ input.ng-invalid.ng-touched {
   border: 1px solid var(--red-color);
 }
 
-.forgot-password {
-  cursor: pointer
+.center-padding {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
 }
