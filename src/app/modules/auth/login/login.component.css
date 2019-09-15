@@ -3,5 +3,9 @@ button {
 }
 
 input.ng-invalid.ng-touched {
-  border: 1px solid red;
+  border: 1px solid var(--red-color);
+}
+
+.forgot-password {
+  cursor: pointer
 }

@@ -9,7 +9,7 @@
           *ngFor="let link of links"
           routerLinkActive="active"
         >
-          <a [routerLink]="link.path">{{ link.text }}</a>
+          <a *ngIf="link.path!='not-found'" [routerLink]="link.path">{{ link.text }}</a>
         </li>
       </ul>
     </div>
