@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {YoutubeService} from "../../shared/services/youtube.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-videos',
@@ -17,7 +18,7 @@ export class VideosComponent implements OnInit {
   ngOnInit() {
     this.videos = [];
     this.youTubeService
-      .getVideosForChanel('UCJTaes-TMoSxPZxxJF_seGw', 30)
+      .getVideosForChanel(environment.youtubeTogglKey, 30)
       .subscribe((list) => {
         for (let element of list["items"]) {
           this.videos.push(element)

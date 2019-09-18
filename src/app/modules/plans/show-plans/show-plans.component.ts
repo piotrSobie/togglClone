@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PlanModel} from "./plan/plan.model";
 import {PlansService} from "../../../shared/services/plans.service";
-import PlansFromBackendInterface from "../../../_interfaces/plansFromBackend.interface";
+import PlansFromBackendInterface from "../../../_interfaces/plans-from-backend.interface";
 
 @Component({
   selector: 'app-show-plans',

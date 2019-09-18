@@ -3,7 +3,6 @@ interface UserProfileInterface {
   email: string;
   password?: string;
   location: string;
-  __v: string;
 }
 
 export default UserProfileInterface;

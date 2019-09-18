@@ -40,25 +40,25 @@
   height: 265px;
 }
 
-.big-bold {
+.title {
   font-size: large;
   font-weight: bold;
 }
 
-.ultra-big {
+.table-title {
   font-size: 30px;
   margin-bottom: 15px;
 }
 
-.enterprise {
+.enterprise-text {
   color: var(--red-color);
 }
 
-.premium {
+.premium-text {
   color: var(--green-color)
 }
 
-.starter {
+.starter-text {
   color: var(--orange-color);
 }
 

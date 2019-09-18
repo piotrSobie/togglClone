@@ -1,25 +1,25 @@
 <div class="panel panel-default">
-  <div class="panel-heading" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">{{ plan.type }}</div>
+  <div class="panel-heading" [ngClass]="{'enterprise-text': plan.type==='Enterprise', 'premium-text': plan.type==='Premium', 'starter-text': plan.type==='Starter'}">{{ plan.type }}</div>
   <div class="panel-body">
     <div class="row">
       <img class="image" [src]="plan.imgUrl" alt="planPicture">
       <div class="column">
         <span class="title"
-              [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">
+              [ngClass]="{'enterprise-text': plan.type==='Enterprise', 'premium-text': plan.type==='Premium', 'starter-text': plan.type==='Starter'}">
           Price:
         </span>
         <span>{{ plan.price }}</span>
       </div>
       <div class="column">
-        <span class="title" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">Description:</span>
+        <span class="title" [ngClass]="{'enterprise-text': plan.type==='Enterprise', 'premium-text': plan.type==='Premium', 'starter-text': plan.type==='Starter'}">Description:</span>
         <span [innerText]="plan.description"></span>
       </div>
       <div class="column">
-        <span class="title" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">Active time:</span>
+        <span class="title" [ngClass]="{'enterprise-text': plan.type==='Enterprise', 'premium-text': plan.type==='Premium', 'starter-text': plan.type==='Starter'}">Active time:</span>
         <span [innerText]="plan.getActiveTime()"></span>
       </div>
       <div class="column">
-        <span class="title" [ngClass]="{enterprise: plan.type==='Enterprise', premium: plan.type==='Premium', starter: plan.type==='Starter'}">Additional wishes:</span>
+        <span class="title" [ngClass]="{'enterprise-text': plan.type==='Enterprise', 'premium-text': plan.type==='Premium', 'starter-text': plan.type==='Starter'}">Additional wishes:</span>
         <span [innerText]="plan.additionalWishes"></span>
       </div>
       <div class="column">

@@ -1,12 +1,12 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
-    <p *ngIf="!plan.type">Please choose new plan from <span class="bold">pricing</span> to add new one or choose to edit/delete existing one from <span class="bold">Plans->Show all plans</span></p>
+    <p *ngIf="!plan.type">Please choose new plan from <span class="title">pricing</span> to add new one or choose to edit/delete existing one from <span class="bold">Plans->Show all plans</span></p>
     <div *ngIf="plan.type">
-      <div class="padding">
-        <p class="padding"><span class="bold">Plan type: </span>{{plan.type}}</p>
-        <p class="padding"><span class="bold">Price: </span>{{plan.price}}</p>
-        <p class="padding"><span class="bold">Description: </span>{{plan.description}}</p>
-        <p class="padding"><span class="bold">Active time: </span>{{plan.getActiveTime()}}</p>
+      <div>
+        <p class="plan-info"><span class="title">Plan type: </span>{{plan.type}}</p>
+        <p class="plan-info"><span class="title">Price: </span>{{plan.price}}</p>
+        <p class="plan-info"><span class="title">Description: </span>{{plan.description}}</p>
+        <p class="plan-info"><span class="title">Active time: </span>{{plan.getActiveTime()}}</p>
       </div>
       <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
         <div class="form-group">
@@ -42,10 +42,10 @@
           </button>
         </div>
       </form>
-      <span *ngIf="added" class="help-block center-padding">Thank you for your purchase, plan was added to your account</span>
-      <span *ngIf="edited" class="help-block center-padding">Plan edited</span>
-      <span *ngIf="deleted" class="help-block center-padding">Plan deleted</span>
-      <span *ngIf="error" class="help-block center-padding">{{error}}</span>
+      <span *ngIf="added" class="help-block message">Thank you for your purchase, plan was added to your account</span>
+      <span *ngIf="edited" class="help-block message">Plan edited</span>
+      <span *ngIf="deleted" class="help-block message">Plan deleted</span>
+      <span *ngIf="error" class="help-block message">{{error}}</span>
     </div>
   </div>
 </div>

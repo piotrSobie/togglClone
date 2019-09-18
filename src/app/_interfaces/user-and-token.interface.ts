@@ -1,4 +1,4 @@
-import UserProfileInterface from "./userProfile.interface";
+import UserProfileInterface from "./user-profile.interface";
 
 interface UserAndTokenInterface {
   tokenData: {

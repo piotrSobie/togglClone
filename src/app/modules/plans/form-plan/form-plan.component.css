@@ -1,13 +1,13 @@
-.bold {
+.title {
   font-weight: bold;
 }
 
-.padding {
+.plan-info {
   padding-bottom: 10px;
   padding-top: 10px;
 }
 
-.center-padding {
+.message {
   text-align: center;
   padding-top: 10px;
 }

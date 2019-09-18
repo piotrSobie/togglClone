@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {LoggingService} from "../../../shared/services/logging.service";
-import UserAndTokenInterface from "../../../_interfaces/userAndToken.interface";
+import UserAndTokenInterface from "../../../_interfaces/user-and-token.interface";
 
 @Component({
   selector: 'app-login',

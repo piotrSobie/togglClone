@@ -1,7 +1,10 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
-import UserProfileInterface from "../../_interfaces/userProfile.interface";
+import UserProfileInterface from "../../_interfaces/user-profile.interface";
+import {UserUrlsEnum} from "../../_enums/user-urls.enum";
+import {Observable} from "rxjs";
+import UserAndTokenInterface from "../../_interfaces/user-and-token.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,50 +14,49 @@ export class LoggingService {
 
   constructor(private http: HttpClient) {}
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     const time = localStorage.getItem('authTokenLastUntil');
     return new Date().getTime() < Number(time);
   }
 
-  register(email: string, password: string, location: string) {
-    return this.http.post(environment.backendUrl + '/auth/register', {
+  register(email: string, password: string, location: string): Observable<UserAndTokenInterface> {
+    return this.http.post<UserAndTokenInterface>(environment.backendUrl + UserUrlsEnum.REGISTER, {
       email,
       password,
       location
     });
   }
 
-  logIn(email: string, password: string) {
-    return this.http.post(environment.backendUrl + '/auth/login', {
+  logIn(email: string, password: string): Observable<UserAndTokenInterface> {
+    return this.http.post<UserAndTokenInterface>(environment.backendUrl + UserUrlsEnum.LOGIN, {
       email,
       password
     });
   }
 
-  logOut() {
+  logOut(): Observable<{}> {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.post(environment.backendUrl + '/auth/logout', {}, {
+    return this.http.post(environment.backendUrl + UserUrlsEnum.LOGOUT, {}, {
       headers: myHeaders
     });
   }
 
-  getUser() {
+  getUser(): Observable<UserProfileInterface> {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.get(environment.backendUrl + '/user/me', {
+    return this.http.get<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.GET_USER, {
       headers: myHeaders
     });
   }
 
-  editUser(user: UserProfileInterface) {
+  editUser(user: UserProfileInterface): Observable<UserProfileInterface> {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
     delete user._id;
-    delete user.__v;
     if (!user.email) {
       delete user.email;
     }
@@ -64,30 +66,30 @@ export class LoggingService {
     if (!user.password) {
       delete user.password;
     }
-    return this.http.patch(environment.backendUrl + '/user/edit', user, {
+    return this.http.patch<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.EDIT_USER, user, {
       headers: myHeaders
     });
   }
 
-  deleteUser() {
+  deleteUser(): Observable<UserProfileInterface> {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.delete(environment.backendUrl + '/user/delete', {
+    return this.http.delete<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.DELETE_USER, {
       headers: myHeaders
     });
   }
 
-  getNewAuthToken() {
+  getNewAuthToken(): Observable<{ expiresIn: number, token: string }> {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.get(environment.backendUrl + '/auth/get-new-auth-token', {
+    return this.http.get<{ expiresIn: number, token: string }>(environment.backendUrl + UserUrlsEnum.NEW_AUTH_TOKEN, {
       headers: myHeaders
     });
   }
   
-  handleError(error) {
+  handleError(error): string {
     if (error.error.message) {
       if (typeof error.error.message === 'string' || error.error.message instanceof String) {
         return error.error.message;
