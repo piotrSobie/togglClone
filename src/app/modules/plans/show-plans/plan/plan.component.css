@@ -24,14 +24,18 @@
   padding-bottom: 10px;
 }
 
-.enterprise {
+.enterprise-text {
   color: var(--red-color);
 }
 
-.premium {
+.premium-text {
   color: var(--green-color)
 }
 
-.starter {
+.starter-text {
   color: var(--orange-color);
+}
+
+.my-btn {
+  margin-bottom: 5px;
 }

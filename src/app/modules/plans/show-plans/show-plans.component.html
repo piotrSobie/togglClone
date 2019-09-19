@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <span *ngIf="userPlans.length === 0">You have no plans yet</span>
+      <app-plan
+        (planEdited)="onPlanEdited($event)"
+        (planDeleted)="onPlanDeleted($event)"
+        *ngFor="let onePlan of userPlans"
+        [plan]="onePlan">
+      </app-plan>
+    </div>
+  </div>
+  <span *ngIf="error" class="help-block center-padding">{{error}}</span>
+</div>

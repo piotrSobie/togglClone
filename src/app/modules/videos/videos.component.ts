@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {YoutubeService} from "../../shared/services/youtube.service";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-videos',
@@ -9,6 +10,7 @@ import {YoutubeService} from "../../shared/services/youtube.service";
 export class VideosComponent implements OnInit {
 
   videos: any[];
+  error = '';
 
   constructor(private youTubeService: YoutubeService) { }
 
@@ -16,11 +18,13 @@ export class VideosComponent implements OnInit {
   ngOnInit() {
     this.videos = [];
     this.youTubeService
-      .getVideosForChanel('UCJTaes-TMoSxPZxxJF_seGw', 30)
-      .subscribe(list => {
+      .getVideosForChanel(environment.youtubeTogglKey, 30)
+      .subscribe((list) => {
         for (let element of list["items"]) {
           this.videos.push(element)
         }
-      });
+      }, (error => {
+        this.error = error.message;
+      }));
   }
 }

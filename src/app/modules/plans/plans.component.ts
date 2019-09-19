@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PlansService} from "../../shared/services/plans.service";
-import {PlanModel} from "./plan/plan.model";
+import {PlanModel} from "./show-plans/plan/plan.model";
 
 @Component({
   selector: 'app-plans',
@@ -10,20 +10,27 @@ import {PlanModel} from "./plan/plan.model";
 export class PlansComponent implements OnInit {
 
   userPlans: PlanModel[];
+  error = '';
 
   constructor(private plansService: PlansService) { }
 
   ngOnInit() {
-   this.userPlans = this.plansService.getPlans();
+    this.error = '';
    this.plansService.userPlansChanged.subscribe(
      (plans: PlanModel[]) => {
        this.userPlans = plans;
+     }, (error) => {
+        this.error = this.plansService.handleError(error);
      }
    );
   }
 
-  onPlanDeleted(plan: PlanModel) {
-    this.plansService.deletePlan(plan);
+  showPlans() {
+    this.plansService.mode = 'show';
+  }
+
+  formRecipe() {
+    this.plansService.mode = 'form';
   }
 
 }

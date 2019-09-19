@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.my-btn {
+  margin: 15px;
+}

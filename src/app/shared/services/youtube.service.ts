@@ -12,7 +12,7 @@ export class YoutubeService {
   constructor(public http: HttpClient) { }
 
   getVideosForChanel(channel, maxResults): Observable<Object> {
-    let url = 'https://www.googleapis.com/youtube/v3/search?key=' +
+    let url = environment.youtubeTogglFilmsUrl +
       environment.apiKey +
       '&channelId=' +
       channel +
@@ -20,7 +20,6 @@ export class YoutubeService {
 
     return this.http.get(url)
       .pipe(map((res) => {
-        console.log(res);
         return res;
       }))
   }

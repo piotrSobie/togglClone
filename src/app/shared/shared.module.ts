@@ -5,13 +5,13 @@ import {HeaderComponents} from "./components/header";
 import {FooterComponents} from "./components/footer";
 import {NgxYoutubePlayerModule} from "ngx-youtube-player";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {PasswordValidatorDirective} from "../_helpers/password-validator.directive";
 
 @NgModule({
-  declarations: [HeaderComponents, FooterComponents],
+  declarations: [HeaderComponents, FooterComponents, PasswordValidatorDirective],
   imports: [
     ...BaseComponents,
     AppRoutingModule,
-    NgxYoutubePlayerModule.forRoot(),
     FlexLayoutModule
   ],
   exports: [
@@ -19,6 +19,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ...HeaderComponents,
     ...FooterComponents,
     AppRoutingModule,
+    PasswordValidatorDirective
   ]
 })
 export class SharedModule { }

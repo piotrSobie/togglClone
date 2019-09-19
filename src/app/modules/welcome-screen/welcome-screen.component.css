@@ -1,0 +1,16 @@
+.title-label {
+  font-size: 36px;
+  font-weight: bold;
+  padding: 10px 10px 10px 10px;
+}
+
+.welcome-paragraph {
+  padding: 10px 10px 10px 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

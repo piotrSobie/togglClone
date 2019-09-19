@@ -13,3 +13,8 @@ input.ng-invalid.ng-touched.form-check-input {
 select.ng-invalid.ng-touched {
   border: 1px solid var(--red-color);
 }
+
+.content {
+  display: flex;
+  justify-content: center;
+}
