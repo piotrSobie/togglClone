@@ -47,7 +47,7 @@ export class LoggingService {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.get<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.GET_USER, {
+    return this.http.get<UserProfileInterface>(environment.backendUrlNestjs + UserUrlsEnum.GET_USER, {
       headers: myHeaders
     });
   }
@@ -66,7 +66,7 @@ export class LoggingService {
     if (!user.password) {
       delete user.password;
     }
-    return this.http.patch<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.EDIT_USER, user, {
+    return this.http.patch<UserProfileInterface>(environment.backendUrlNestjs + UserUrlsEnum.EDIT_USER, user, {
       headers: myHeaders
     });
   }
@@ -75,7 +75,7 @@ export class LoggingService {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.delete<UserProfileInterface>(environment.backendUrl + UserUrlsEnum.DELETE_USER, {
+    return this.http.delete<UserProfileInterface>(environment.backendUrlNestjs + UserUrlsEnum.DELETE_USER, {
       headers: myHeaders
     });
   }

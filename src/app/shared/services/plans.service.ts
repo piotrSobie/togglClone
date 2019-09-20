@@ -28,7 +28,7 @@ export class PlansService {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.get<PlansFromBackendInterface[]>(environment.backendUrl + PlansUrlsEnum.GET_ALL_PLANS, {
+    return this.http.get<PlansFromBackendInterface[]>(environment.backendUrlNestjs + PlansUrlsEnum.GET_ALL_PLANS, {
       headers: myHeaders
     });
   }
@@ -38,7 +38,7 @@ export class PlansService {
       'Authorization': localStorage.getItem('authToken')
     });
 
-    return this.http.post<PlansFromBackendInterface>(environment.backendUrl + PlansUrlsEnum.CREATE, {
+    return this.http.post<PlansFromBackendInterface>(environment.backendUrlNestjs + PlansUrlsEnum.CREATE, {
       type: plan.type,
       price: plan.price,
       description: plan.description,
@@ -54,7 +54,7 @@ export class PlansService {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.patch<PlansFromBackendInterface>(environment.backendUrl + PlansUrlsEnum.EDIT + plan._id, {
+    return this.http.patch<PlansFromBackendInterface>(environment.backendUrlNestjs + PlansUrlsEnum.EDIT + plan._id, {
       additionalWishes: plan.additionalWishes
     }, {
       headers: myHeaders
@@ -65,7 +65,7 @@ export class PlansService {
     const myHeaders = new HttpHeaders({
       'Authorization': localStorage.getItem('authToken')
     });
-    return this.http.delete(environment.backendUrl + PlansUrlsEnum.DELETE + plan._id, {
+    return this.http.delete(environment.backendUrlNestjs + PlansUrlsEnum.DELETE + plan._id, {
       headers: myHeaders
     });
   }
