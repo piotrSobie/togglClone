@@ -1,6 +1,6 @@
 <div class="row">
   <div class="content" *ngIf="this.loggingService.isAuthenticated()">
-    <span class="center-padding">You are already logged in</span>
+    <span class="center-padding logged-message">You are already logged in. We are happy to have you back!</span>
   </div>
   <div *ngIf="!this.loggingService.isAuthenticated()" class="col-xs-12 col-md-6 col-md-offset-3">
     <form #authForm="ngForm" (ngSubmit)="onSubmitLogin(authForm)">
@@ -35,7 +35,7 @@
         </span>
       </div>
       <div class="text-center">
-        <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">
+        <button class="btn btn-primary my-btn" type="submit" [disabled]="!authForm.valid">
           LOG IN
         </button>
       </div>

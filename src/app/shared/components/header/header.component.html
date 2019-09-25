@@ -2,8 +2,24 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a routerLink="/" class="navbar-brand">Toggl</a>
+      <div class="side-menu-container">
+        <span class="side-menu-button" (click)="openNav()">&#9776;</span>
+        <div class="sidenav" #sideMenuDiv>
+          <span class="menu-title">Menu</span>
+          <a class="close-btn" (click)="closeNav()">&times;</a>
+          <ul class="nav navbar-nav navbar-right">
+            <li
+              *ngFor="let link of links"
+              routerLinkActive="active"
+            >
+              <a *ngIf="link.path!=='not-found' && link.text!=='WelcomeScreen'" [routerLink]="link.path">{{ link.text }}</a>
+            </li>
+            <li><a class="logout-link" (click)="logout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="navbar-collapse">
+    <div class="navbar-menu navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li
           *ngFor="let link of links"

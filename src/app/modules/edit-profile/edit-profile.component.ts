@@ -276,10 +276,12 @@ export class EditProfileComponent implements OnInit {
   loadUser() {
     this.loggingService.getUser()
       .subscribe((data: UserProfileInterface) => {
+        console.log(data);
         this.user = data;
       }, (error) => {
-        this.error = error;
-      });
+        console.log(error);
+        this.error = this.loggingService.handleError(error);
+  });
   }
 
   ngOnInit() {
@@ -303,7 +305,7 @@ export class EditProfileComponent implements OnInit {
     this.error = '';
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     if (!(this.validateEmail(form.value.email) && (!form.value.password || this.validatePassword(form.value.password)) && form.value.location && this.operation)) {
       this.formError = true;
       return;
