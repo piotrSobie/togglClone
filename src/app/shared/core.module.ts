@@ -10,9 +10,10 @@ import {VideosComponents} from "../modules/videos";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {EditProfileComponents} from "../modules/edit-profile";
 import {WelcomeScreenComponents} from "../modules/welcome-screen";
+import {MatButtonModule} from '@angular/material';
 
 @NgModule({
-  imports: [SharedModule, AgmCoreModule, FlexLayoutModule],
+  imports: [SharedModule, AgmCoreModule, FlexLayoutModule, MatButtonModule],
   declarations: [
     ...LoginComponents,
     ...RegisterComponents,

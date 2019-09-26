@@ -16,7 +16,7 @@ export class PlansComponent implements OnInit {
 
   ngOnInit() {
     this.error = '';
-   this.plansService.userPlansChanged.subscribe(
+    this.plansService.userPlansChanged.subscribe(
      (plans: PlanModel[]) => {
        this.userPlans = plans;
      }, (error) => {

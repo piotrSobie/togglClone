@@ -1,8 +1,27 @@
+hr{
+  background-color: black;
+}
+
+.subpage-title-container {
+  display: flex;
+  justify-content: center;
+}
+
+.subpage-title {
+  font-family: 'Sofia';
+  font-size: 22px;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: 30px 0px 30px 0px;
+}
+
+.disclaimer {
+  padding: 10px;
+  border: 5px groove var(--red-color);
 }
 
 .column {
@@ -64,4 +83,6 @@
 
 .email {
   max-width: 160px;
+  background-color: var(--dark-purple-color);
+  border: 1px solid var(--dark-purple-color);
 }

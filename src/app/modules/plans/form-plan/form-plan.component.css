@@ -10,4 +10,10 @@
 .message {
   text-align: center;
   padding-top: 10px;
+  line-height: 30px;
+}
+
+.my-btn {
+  background-color: var(--dark-purple-color);
+  border: 1px solid var(--dark-purple-color);
 }

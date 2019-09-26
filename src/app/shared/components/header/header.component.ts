@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoggingService} from "../../services/logging.service";
 
@@ -10,8 +10,18 @@ import {LoggingService} from "../../services/logging.service";
 export class HeaderComponent implements OnInit {
 
   links: Array<{ text: string, path: string}> = [];
+  @ViewChild('sideMenuDiv', {static: false}) sideNavDiv: ElementRef;
 
   constructor(private router: Router, private loggingService: LoggingService) {
+
+  }
+
+  openNav() {
+    this.sideNavDiv.nativeElement.style.width = '250px';
+  }
+
+  closeNav() {
+    this.sideNavDiv.nativeElement.style.width = '0';
 
   }
 
@@ -39,7 +49,7 @@ export class HeaderComponent implements OnInit {
           if (error.error.message.length < 30) {
             alert(error.error.message);
           }
-        } else{
+        } else {
           alert('Internal server error');
         }
       }

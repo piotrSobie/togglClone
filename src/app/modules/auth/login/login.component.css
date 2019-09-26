@@ -15,3 +15,13 @@ input.ng-invalid.ng-touched {
   display: flex;
   justify-content: center;
 }
+
+.logged-message {
+  font-family: 'Sofia';
+  font-size: 22px;
+}
+
+.my-btn {
+  background-color: var(--dark-purple-color);
+  border: 1px solid var(--dark-purple-color);
+}

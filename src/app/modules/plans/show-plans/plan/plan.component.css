@@ -10,8 +10,13 @@
   text-align: center;
 }
 
+.panel-body {
+  background-color: var(--soft-light-purple-colot);
+}
+
 .panel-heading {
   text-align: center;
+  background-color: var(--light-purple-color);
 }
 
 .image {

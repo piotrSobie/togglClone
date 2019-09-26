@@ -1,3 +1,7 @@
+.footer-container {
+  background: linear-gradient(to bottom, var(--purple-color) 0%, var(--white-color) 100%);
+}
+
 svg {
   max-height: 36px;
   margin: 0 auto;
