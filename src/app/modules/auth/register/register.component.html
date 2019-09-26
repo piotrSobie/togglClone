@@ -29,12 +29,31 @@
           ngModel
           name="password"
           required
-          minlength="6"
           #password="ngModel"
           validatePassword
         />
         <span class="help-block" *ngIf="!password.valid && password.touched">
           Password should be at least 8 characters long and contain one of each characters: lowercase character, uppercase character, number and special character
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">CONFIRM PASSWORD</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          class="form-control"
+          ngModel
+          name="confirmPassword"
+          required
+          #confirmPassword="ngModel"
+          appConfirmEqualValidator="password"
+          validatePassword
+        />
+        <span class="help-block" *ngIf="!confirmPassword.valid && confirmPassword.touched && !confirmPassword.errors?.notEqual">
+          Password should be at least 8 characters long and contain one of each characters: lowercase character, uppercase character, number and special character
+        </span>
+        <span class="help-block" *ngIf="confirmPassword.errors?.notEqual && confirmPassword.touched">
+          Passwords should be identical
         </span>
       </div>
       <div class="form-group">

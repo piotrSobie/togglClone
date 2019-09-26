@@ -6,14 +6,22 @@ import {CoreModule} from "./shared/core.module";
 import {LoggingService} from "./shared/services/logging.service";
 import {PlansService} from "./shared/services/plans.service";
 import {AuthGuardService} from "./_guards/auth-guard.service";
+import { ConfirmDialogComponent } from './shared/dialogs/confirm-dialog/confirm-dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatDialogModule} from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmDialogComponent
   ],
+  entryComponents: [ConfirmDialogComponent],
   imports: [
     SharedModule,
-    CoreModule
+    CoreModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [LoggingService, PlansService, AuthGuardService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {LoggingService} from "../../../shared/services/logging.service";
 import UserAndTokenInterface from "../../../_interfaces/user-and-token.interface";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -264,7 +265,7 @@ export class RegisterComponent implements OnInit {
     { value: 'ZW', name: 'Zimbabwe' },
   ];
 
-  constructor(private loggingService: LoggingService) { }
+  constructor(private loggingService: LoggingService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -285,6 +286,7 @@ export class RegisterComponent implements OnInit {
         const authTokenLastTill = new Date().getTime() + data.tokenData.expiresIn * 1000;
         localStorage.setItem('authToken', data.tokenData.token);
         localStorage.setItem('authTokenLastUntil', authTokenLastTill.toString());
+        this.router.navigate(['/pricing']);
       }, (error) => {
         if (error.error.message.code === 11000) {
           this.duplicateEmail = true;

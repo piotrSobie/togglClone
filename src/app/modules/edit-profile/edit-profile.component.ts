@@ -3,6 +3,8 @@ import {LoggingService} from "../../shared/services/logging.service";
 import UserProfileInterface from "../../_interfaces/user-profile.interface";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import { MatDialog } from '@angular/material';
+import {ConfirmDialogComponent} from '../../shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-edit-profile',
@@ -271,7 +273,8 @@ export class EditProfileComponent implements OnInit {
     { value: 'ZW', name: 'Zimbabwe' },
   ];
 
-  constructor(private loggingService: LoggingService, private router: Router) { }
+  constructor(private loggingService: LoggingService, private router: Router,
+              private dialog: MatDialog) { }
 
   loadUser() {
     this.loggingService.getUser()
@@ -313,33 +316,38 @@ export class EditProfileComponent implements OnInit {
 
     this.resetMessages();
 
-    if (this.operation === 'edit') {
-      this.loggingService.editUser(this.user).subscribe(
-        (editedUser: UserProfileInterface) => {
-          this.edited = true;
-          this.user = editedUser;
-        }, (error) => {
-          if (error.error.message.code === 11000) {
-            this.duplicateEmail = true;
-          } else {
-            this.error = this.loggingService.handleError(error);
-          }
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, { data: { type: this.operation} });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'true') {
+        if (this.operation === 'edit') {
+          this.loggingService.editUser(this.user).subscribe(
+            (editedUser: UserProfileInterface) => {
+              this.edited = true;
+              this.user = editedUser;
+            }, (error) => {
+              if (error.error.message.code === 11000) {
+                this.duplicateEmail = true;
+              } else {
+                this.error = this.loggingService.handleError(error);
+              }
+            }
+          );
+        } else if (this.operation === 'delete') {
+          this.loggingService.deleteUser().subscribe(
+            (data) => {
+              this.deleted = true;
+              localStorage.removeItem('authToken');
+              localStorage.removeItem('authTokenLastUntil');
+              setTimeout(() => {
+                this.router.navigate(['/']);
+              }, this.timeToRedirectAfterDeletion * 1000);
+            }, (error) => {
+              this.error = this.loggingService.handleError(error);
+            }
+          );
         }
-      );
-    } else if (this.operation === 'delete') {
-      this.loggingService.deleteUser().subscribe(
-        (data) => {
-          this.deleted = true;
-          localStorage.removeItem('authToken');
-          localStorage.removeItem('authTokenLastUntil');
-          setTimeout(() => {
-            this.router.navigate(['/']);
-          }, this.timeToRedirectAfterDeletion*1000);
-        }, (error) => {
-          this.error = this.loggingService.handleError(error);
-        }
-      );
-    }
+      }
+    });
   }
 
 }

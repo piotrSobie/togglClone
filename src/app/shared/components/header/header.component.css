@@ -48,10 +48,10 @@
 .sidenav .menu-title {
   position: absolute;
   top: 0;
-  left: 25px;
-  font-size: 36px;
+  left: 2vw;
+  font-size: 5vh;
   margin-right: 50px;
-  margin-top: 20px;
+  margin-top: 2vh;
 }
 
 .navbar {

@@ -7,7 +7,7 @@
   fxLayoutGap.xs="0px"
   fxLayoutAlign="center"
 >
-  <div *ngFor="let video of videos"
+  <div class="video-container" *ngFor="let video of videos"
        fxFlex="25"
        fxFlex.md="33"
        fxFlex.sm="50"
@@ -15,7 +15,13 @@
        fxLayout="column"
        fxLayoutGap="10px"
   >
-    <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="video_snippet">
+
+    <div>
+      <a class="img-link" href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+        <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="video_snippet">
+      </a>
+    </div>
+
     <a fxLayoutAlign="center" href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
       {{video.snippet.title}}
     </a>
